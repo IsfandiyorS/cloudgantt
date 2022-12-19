@@ -1,0 +1,63 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-sections-table
+      author: isfandiyor
+      changes:
+        - createTable:
+            tableName: sections
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                   name: name
+                   type: varchar(255)
+
+              - column:
+                   name: rank
+                   type: int
+
+              - column:
+                  name: version_id
+                  type: int
+
+              - column:
+                  name: created_by
+                  type: int
+
+              - column:
+                  name: created_date
+                  type: timestamp
+                  defaultValue: now()
+
+              - column:
+                  name: last_modified_by
+                  type: int
+
+              - column:
+                  name: last_modified_date
+                  type: timestamp
+
+
+  - changeSet:
+      id: addForeignKeyConstraint-sectionId
+      author:  isfandiyor
+      changes:
+        -  addForeignKeyConstraint:
+             baseColumnNames:  version_id
+             baseTableName:  sections
+             baseTableSchemaName:  public
+             constraintName:  fk_amniff0f3vk1vw2ccrkh0u3gr
+             deferrable:  true
+             initiallyDeferred:  true
+             onDelete:  CASCADE
+             onUpdate:  CASCADE
+             referencedColumnNames:  id
+             referencedTableName:  version
+             referencedTableSchemaName:  public
+             validate:  true

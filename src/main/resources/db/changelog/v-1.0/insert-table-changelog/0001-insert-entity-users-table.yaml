@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-row-to-users-table
+      author: isfandiyor
+      changes:
+        - sql:
+            sql: INSERT INTO users(id, firstname, lastname, email, password, created_by, user_type)
+                  VALUES (-1, 'Isfandiyor', 'Sultonov', 'isfandiyorsultonov19@mail.ru', '200107abc', -1, 'ADMIN'),
+                         (-2, 'Lochinbek', 'Ashurmatov', 'isfandiyorsultonov18@mail.ru', '200107abc', -1, 'USER'),
+                         (-3, 'Otabek', 'Javkochdiev', 'otabekjavkochdiev@gmail.com', '200107abc', -1, 'VIEWER')

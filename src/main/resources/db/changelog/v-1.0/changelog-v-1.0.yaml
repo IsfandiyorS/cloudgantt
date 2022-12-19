@@ -1,0 +1,54 @@
+databaseChangeLog:
+  # Create entity tables
+  - include:
+      file: create-schemas/0001-create-permissions-table.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: create-schemas/0002-create-roles-table.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: create-schemas/0003-create-auth_roles_permissions-table.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: create-schemas/0004-create-users-table.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: create-schemas/0005-create-auth-users-roles-table.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: create-schemas/0006-create-plan-type-table.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: create-schemas/0007-create-project-table.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: create-schemas/0008-create-version-table.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: create-schemas/0009-create-sections-table.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: create-schemas/0010-create-tasks-table.yaml
+      relativeToChangelogFile: true
+
+#   Insert rows to tables
+  - include:
+      file: insert-table-changelog/0001-insert-entity-users-table.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: insert-table-changelog/0002-insert-entity-roles-table.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: insert-table-changelog/0003-insert-entity-auth-users-roles.yaml
+      relativeToChangelogFile: true

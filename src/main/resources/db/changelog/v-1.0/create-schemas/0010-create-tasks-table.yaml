@@ -1,0 +1,104 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-task-table
+      author: isfandiyor
+      changes:
+        - createTable:
+            tableName: tasks
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: name
+                  type: varchar(255)
+
+              - column:
+                  name: description
+                  type: text
+
+              - column:
+                  name: begin_date
+                  type: date
+
+              - column:
+                  name: end_date
+                  type: date
+
+              - column:
+                  name: duration
+                  type: int
+
+              - column:
+                  name: rank
+                  type: int
+
+#              - column:
+#                  name: deadline
+#                  type: date
+
+              - column:
+                  name: section_id
+                  type: bigint
+
+              - column:
+                  name: plan_type_id
+                  type: bigint
+
+              - column:
+                  name: created_by
+                  type: int
+
+              - column:
+                  name: created_date
+                  type: timestamp
+                  defaultValue: now()
+
+              - column:
+                  name: last_modified_by
+                  type: int
+
+              - column:
+                  name: last_modified_date
+                  type: timestamp
+
+  - changeSet:
+      id: addForeignKeyConstraint-sectionId-to-tasks
+      author:  isfandiyor
+      changes:
+        -  addForeignKeyConstraint:
+             baseColumnNames:  section_id
+             baseTableName:  tasks
+             baseTableSchemaName:  public
+             constraintName:  fk_3eirxlakxvuxmbdwc53yk34sq
+             deferrable:  true
+             initiallyDeferred:  true
+             onDelete:  CASCADE
+             onUpdate:  CASCADE
+             referencedColumnNames:  id
+             referencedTableName:  sections
+             referencedTableSchemaName:  public
+             validate:  true
+
+  - changeSet:
+      id: addForeignKeyConstraint-planTypeId-to-tasks
+      author:  isfandiyor
+      changes:
+        -  addForeignKeyConstraint:
+             baseColumnNames:  plan_type_id
+             baseTableName:  tasks
+             baseTableSchemaName:  public
+             constraintName:  fk_23056081w3e8i679ct4pjl914
+             deferrable:  true
+             initiallyDeferred:  true
+             onDelete:  CASCADE
+             onUpdate:  CASCADE
+             referencedColumnNames:  id
+             referencedTableName:  plan_type
+             referencedTableSchemaName:  public
+             validate:  true

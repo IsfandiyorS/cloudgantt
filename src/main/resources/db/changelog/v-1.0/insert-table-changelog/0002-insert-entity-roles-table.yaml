@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-row-to-roles-table
+      author: isfandiyor
+      changes:
+        - sql:
+            sql: INSERT INTO roles(id, code, name, created_by)
+                  VALUES (-1, 'ADMIN', 'Admin', -1),
+                         (-2, 'CREATOR', 'Creator', -1),
+                         (-3, 'VIEWER', 'Viewer', -1)

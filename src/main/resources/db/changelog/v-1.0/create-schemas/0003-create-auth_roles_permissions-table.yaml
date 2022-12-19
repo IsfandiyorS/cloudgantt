@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+        id: create-auth_roles_permissions
+        author: isfandiyor
+        changes:
+          - createTable:
+              tableName: auth_roles_permissions
+              columns:
+                - column:
+                    name: role_id
+                    type: bigint
+
+                - column:
+                    name: permission_id
+                    type: bigint
+
+  - changeSet:
+      id: addForeignKeyConstraint-role_id
+      author:  isfandiyor
+      changes:
+        -  addForeignKeyConstraint:
+             baseColumnNames:  role_id
+             baseTableName:  auth_roles_permissions
+             baseTableSchemaName:  public
+             constraintName:  fk_he6vs3xn79m1yv82uy2uhemog
+             deferrable:  true
+             initiallyDeferred:  true
+             onDelete:  CASCADE
+             onUpdate:  CASCADE
+             referencedColumnNames:  id
+             referencedTableName:  roles
+             referencedTableSchemaName:  public
+             validate:  true
+
+  - changeSet:
+      id: addForeignKeyConstraint-permission_id
+      author: isfandiyor
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: permission_id
+            baseTableName: auth_roles_permissions
+            baseTableSchemaName: public
+            constraintName: fk_60nl73p07h9uts56t0cs5389l
+            deferrable: true
+            initiallyDeferred: true
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            referencedColumnNames: id
+            referencedTableName: permissions
+            referencedTableSchemaName: public
+            validate: true

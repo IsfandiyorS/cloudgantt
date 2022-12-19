@@ -1,0 +1,55 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-users-table
+      author: isfandiyor
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: firstname
+                  type: varchar(255)
+
+              - column:
+                  name: lastname
+                  type: varchar(255)
+
+              - column:
+                  name: email
+                  type: varchar(255)
+                  constraints:
+                    unique: true
+                    nullable: false
+
+              - column:
+                  name: password
+                  type: varchar(255)
+
+              - column:
+                  name: user_type
+                  type: varchar(255)
+
+              - column:
+                  name: created_by
+                  type: int
+
+              - column:
+                  name: created_date
+                  type: timestamp
+                  defaultValue: now()
+
+              - column:
+                  name: last_modified_by
+                  type: int
+
+              - column:
+                  name: last_modified_date
+                  type: timestamp

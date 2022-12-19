@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-plan-type-table
+      author: isfandiyor
+      changes:
+        - createTable:
+            tableName: plan_type
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: type_name
+                  type: varchar(255)
+
+              - column:
+                  name: created_by
+                  type: int
+
+              - column:
+                  name: created_date
+                  type: timestamp
+                  defaultValue: now()
+
+              - column:
+                  name: last_modified_by
+                  type: int
+
+              - column:
+                  name: last_modified_date
+                  type: timestamp

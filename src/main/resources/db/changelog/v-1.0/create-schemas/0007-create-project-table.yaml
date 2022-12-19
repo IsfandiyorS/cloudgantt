@@ -1,0 +1,60 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-project-table
+      author: isfandiyor
+      changes:
+        - createTable:
+            tableName: project
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: user_id
+                  type: int
+
+              - column:
+                  name: created_by
+                  type: int
+
+              - column:
+                  name: created_date
+                  type: timestamp
+                  defaultValue: now()
+
+              - column:
+                  name: last_modified_by
+                  type: int
+
+              - column:
+                  name: last_modified_date
+                  type: timestamp
+
+  - changeSet:
+      id: addForeignKeyConstraint-with-userId
+      author: isfandiyor
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: project
+            baseTableSchemaName: public
+            constraintName: fk_f1va93taog6qokr6sqmtgr93h
+            deferrable: true
+            initiallyDeferred: true
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            referencedColumnNames: id
+            referencedTableName: users
+            referencedTableSchemaName: public
+            validate: true
