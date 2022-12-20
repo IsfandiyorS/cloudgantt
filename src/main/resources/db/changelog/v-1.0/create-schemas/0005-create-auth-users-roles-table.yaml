@@ -22,7 +22,7 @@ databaseChangeLog:
              baseColumnNames:  user_id
              baseTableName:  auth_users_roles
              baseTableSchemaName:  public
-             constraintName:  fk_drr9cvl45vbw3ytmias2vr1av
+             constraintName:  fk_auth_users_roles_users
              deferrable:  true
              initiallyDeferred:  true
              onDelete:  CASCADE
@@ -40,7 +40,7 @@ databaseChangeLog:
             baseColumnNames: role_id
             baseTableName: auth_users_roles
             baseTableSchemaName: public
-            constraintName: fk_bx3iq0t4bd84xb219tamfddm4
+            constraintName: fk_auth_users_roles_roles
             deferrable: true
             initiallyDeferred: true
             onDelete: CASCADE

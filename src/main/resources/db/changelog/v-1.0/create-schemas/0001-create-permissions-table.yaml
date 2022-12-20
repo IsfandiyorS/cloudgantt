@@ -30,7 +30,7 @@ databaseChangeLog:
 
             - column:
                 name: created_by
-                type: int
+                type: bigint
 
             - column:
                 name: created_date
@@ -39,7 +39,7 @@ databaseChangeLog:
 
             - column:
                 name: last_modified_by
-                type: int
+                type: bigint
 
             - column:
                 name: last_modified_date

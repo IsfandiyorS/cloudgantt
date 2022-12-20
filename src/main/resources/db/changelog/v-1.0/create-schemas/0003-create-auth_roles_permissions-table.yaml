@@ -22,7 +22,7 @@ databaseChangeLog:
              baseColumnNames:  role_id
              baseTableName:  auth_roles_permissions
              baseTableSchemaName:  public
-             constraintName:  fk_he6vs3xn79m1yv82uy2uhemog
+             constraintName:  fk_auth_roles_permissions_roles
              deferrable:  true
              initiallyDeferred:  true
              onDelete:  CASCADE
@@ -40,7 +40,7 @@ databaseChangeLog:
             baseColumnNames: permission_id
             baseTableName: auth_roles_permissions
             baseTableSchemaName: public
-            constraintName: fk_60nl73p07h9uts56t0cs5389l
+            constraintName: fk_auth_roles_permissions_permissions
             deferrable: true
             initiallyDeferred: true
             onDelete: CASCADE

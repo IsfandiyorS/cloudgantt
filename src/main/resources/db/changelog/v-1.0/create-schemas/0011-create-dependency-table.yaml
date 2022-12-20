@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: create-project-table
+      id: create-dependency-table
       author: isfandiyor
       changes:
         - createTable:
-            tableName: project
+            tableName: dependency
             columns:
               - column:
                   name: id
@@ -15,14 +15,12 @@ databaseChangeLog:
                     nullable: false
 
               - column:
-                  name: name
-                  type: varchar(255)
-                  constraints:
-                    nullable: false
+                  name: preceded_task_id
+                  type: bigint
 
               - column:
-                  name: user_id
-                  type: int
+                  name: succeeded_task_id
+                  type: bigint
 
               - column:
                   name: created_by
@@ -42,19 +40,37 @@ databaseChangeLog:
                   type: timestamp
 
   - changeSet:
-      id: addForeignKeyConstraint-with-userId
+      id: addForeignKeyConstraint-preceded_task_id
+      author:  isfandiyor
+      changes:
+        -  addForeignKeyConstraint:
+             baseColumnNames:  preceded_task_id
+             baseTableName:  dependency
+             baseTableSchemaName:  public
+             constraintName:  fk_dependency_preceded_task
+             deferrable:  true
+             initiallyDeferred:  true
+             onDelete:  CASCADE
+             onUpdate:  CASCADE
+             referencedColumnNames:  id
+             referencedTableName:  tasks
+             referencedTableSchemaName:  public
+             validate:  true
+
+  - changeSet:
+      id: addForeignKeyConstraint-succeeded_task_id
       author: isfandiyor
       changes:
         - addForeignKeyConstraint:
-            baseColumnNames: user_id
-            baseTableName: project
+            baseColumnNames: succeeded_task_id
+            baseTableName: dependency
             baseTableSchemaName: public
-            constraintName: fk_project_users
+            constraintName: fk_dependency_succeeded_task
             deferrable: true
             initiallyDeferred: true
             onDelete: CASCADE
             onUpdate: CASCADE
             referencedColumnNames: id
-            referencedTableName: users
+            referencedTableName: tasks
             referencedTableSchemaName: public
             validate: true

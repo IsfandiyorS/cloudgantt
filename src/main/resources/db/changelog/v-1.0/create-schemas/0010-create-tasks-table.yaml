@@ -38,9 +38,9 @@ databaseChangeLog:
                   name: rank
                   type: int
 
-#              - column:
-#                  name: deadline
-#                  type: date
+              - column:
+                  name: deadline
+                  type: date
 
               - column:
                   name: section_id
@@ -52,7 +52,7 @@ databaseChangeLog:
 
               - column:
                   name: created_by
-                  type: int
+                  type: bigint
 
               - column:
                   name: created_date
@@ -61,7 +61,7 @@ databaseChangeLog:
 
               - column:
                   name: last_modified_by
-                  type: int
+                  type: bigint
 
               - column:
                   name: last_modified_date
@@ -75,7 +75,7 @@ databaseChangeLog:
              baseColumnNames:  section_id
              baseTableName:  tasks
              baseTableSchemaName:  public
-             constraintName:  fk_3eirxlakxvuxmbdwc53yk34sq
+             constraintName:  fk_tasks_sections
              deferrable:  true
              initiallyDeferred:  true
              onDelete:  CASCADE
@@ -93,7 +93,7 @@ databaseChangeLog:
              baseColumnNames:  plan_type_id
              baseTableName:  tasks
              baseTableSchemaName:  public
-             constraintName:  fk_23056081w3e8i679ct4pjl914
+             constraintName:  fk_tasks_plan_type
              deferrable:  true
              initiallyDeferred:  true
              onDelete:  CASCADE

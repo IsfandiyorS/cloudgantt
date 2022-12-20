@@ -1,26 +1,55 @@
 package com.epam.cloudgantt.domain;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import lombok.*;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.experimental.FieldDefaults;
 
-import java.util.List;
+import java.util.Objects;
 
 import static lombok.AccessLevel.PRIVATE;
 
 @Entity
-@Getter
-@Setter
+@Table(name = "plan_type")
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor
 @FieldDefaults(level = PRIVATE)
 public class PlanType extends Auditable {
 
     String typeName;
 
-    @OneToMany(mappedBy = "planningType")
-    List<Task> taskList;
+    public PlanType(){}
 
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        PlanType planType = (PlanType) o;
+        return Objects.equals(typeName, planType.typeName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), typeName);
+    }
+
+    @Override
+    public String toString() {
+        return "PlanType{" +
+                "id=" + id + '\'' +
+                ", typeName='" + typeName +
+                ", createdDate=" + createdDate +
+                ", lastModifiedDate=" + lastModifiedDate +
+                '}';
+    }
 }

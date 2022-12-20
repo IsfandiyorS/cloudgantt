@@ -28,7 +28,7 @@ databaseChangeLog:
 
               - column:
                   name: created_by
-                  type: int
+                  type: bigint
 
               - column:
                   name: created_date
@@ -37,7 +37,7 @@ databaseChangeLog:
 
               - column:
                   name: last_modified_by
-                  type: int
+                  type: bigint
 
               - column:
                   name: last_modified_date
@@ -52,7 +52,7 @@ databaseChangeLog:
              baseColumnNames:  version_id
              baseTableName:  sections
              baseTableSchemaName:  public
-             constraintName:  fk_amniff0f3vk1vw2ccrkh0u3gr
+             constraintName:  fk_sections_version
              deferrable:  true
              initiallyDeferred:  true
              onDelete:  CASCADE

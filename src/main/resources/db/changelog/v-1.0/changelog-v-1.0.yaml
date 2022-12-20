@@ -40,7 +40,11 @@ databaseChangeLog:
       file: create-schemas/0010-create-tasks-table.yaml
       relativeToChangelogFile: true
 
-#   Insert rows to tables
+  - include:
+      file: create-schemas/0011-create-dependency-table.yaml
+      relativeToChangelogFile: true
+
+  #   Insert rows to tables
   - include:
       file: insert-table-changelog/0001-insert-entity-users-table.yaml
       relativeToChangelogFile: true
