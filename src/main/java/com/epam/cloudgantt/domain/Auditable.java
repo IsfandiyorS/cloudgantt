@@ -15,6 +15,10 @@ import java.util.Objects;
 
 import static lombok.AccessLevel.PROTECTED;
 
+/*
+super class
+ */
+
 @MappedSuperclass
 @AllArgsConstructor
 @FieldDefaults(level = PROTECTED)
