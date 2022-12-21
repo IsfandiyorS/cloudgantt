@@ -17,6 +17,7 @@ import static lombok.AccessLevel.PROTECTED;
 
 /*
 super class
+
  */
 
 @MappedSuperclass
