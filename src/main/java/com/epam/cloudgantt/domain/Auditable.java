@@ -16,7 +16,7 @@ import java.util.Objects;
 import static lombok.AccessLevel.PROTECTED;
 
 /*
-test
+test new test
  */
 @MappedSuperclass
 @AllArgsConstructor
